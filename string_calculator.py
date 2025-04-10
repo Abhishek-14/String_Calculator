@@ -16,4 +16,9 @@ def add(numbers):
         numbers = parts[1]
 
     nums = re.split(delimiter, numbers)
-    return sum(int(num) for num in nums)
+    int_nums = [int(num) for num in nums]
+    negatives = [num for num in int_nums if num < 0]
+
+    if negatives:
+        raise ValueError(f"negative numbers not allowed: {', '.join(map(str, negatives))}")
+    return sum(int_nums)
