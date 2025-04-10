@@ -17,3 +17,8 @@ def test_multiple_numbers_returns_sum():
 def test_newline_or_comma_as_delimiter():
     assert add("1\n2,3") == 6
     assert add("4\n5\n6") == 15
+
+def test_custom_delimiter():
+    assert add("//;\n1;2") == 3
+    assert add("//|\n4|5|6") == 15
+    assert add("//.\n2.3.4") == 9
